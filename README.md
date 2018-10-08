@@ -1,2 +1,2 @@
 # 如果你决定出发，那么旅行中最困难的部分已经结束了。那么，出发吧。
-! [这里随便填写 ] (time.jpg)；
+![Aaron Swartz](https://github.com/younghz/Markdown/raw/master/Res/Aaron_Swartz.jpg)
