@@ -1,6 +1,8 @@
 from pandas import Series, DataFrame
 import pandas as pd
 import numpy as np
+import matplotlib as mpl
+import matplotlib.pyplot as plt
 
 obj = Series([1, -2, 3, -4])
 
@@ -121,3 +123,41 @@ coco    NaN  NaN NaN NaN
 tea     6.0  8.0 NaN NaN
 '''
 
+data = {
+    'fruit':['apple', 'orange', 'grape', 'banana'],
+    'price':['25元', '42元', '35元', '4元']
+}
+df1 = DataFrame(data)
+def f(x):
+    return x.split('元')[0]
+df1['price'] = df1['price'].map(f)
+
+df2 = DataFrame(np.random.randn(3, 3), columns=['a', 'b', 'c'],index=['app', 'win', 'mac'])
+f = lambda x:x.max()-x.min()
+df2.apply(f)
+obj1 = Series([-2, 3, 2, 1],index=['b', 'a', 'd', 'c'])
+
+df = DataFrame(np.arange(0,9).reshape(3, 3),columns=['a', 'b', 'c'])
+# 按列计算和
+df.sum()
+# 按行计算和
+df.sum(axis = 1)
+# 统计函数
+df.describe()
+obj = Series(['a', 'b', 'c', 'a', 'b'])
+
+'''分层索引'''
+obj = Series(np.random.randn(9),
+             index=[['one', 'one', 'one', 'two', 'two', 'two', 'three','three','three'],
+                    ['a', 'b', 'c', 'a', 'b', 'c', 'a', 'b', 'c']])
+df5 = DataFrame(np.arange(16).reshape(4, 4),index=[['one', 'one', 'two', 'two'],
+                                                   ['a', 'b', 'a', 'b']],
+                columns=[['apple', 'apple', 'orange', 'orange'],
+                         ['red', 'green', 'red', 'green']])
+df5['apple']
+
+
+'''pandas可视化'''
+# 服从正态分布
+s = Series(np.random.normal(size = 10))
+s.plot()
